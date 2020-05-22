@@ -11,10 +11,12 @@ GPIO.setup(22, GPIO.OUT, initial=GPIO.HIGH)
 
 try:
     while True:
-        GPIO.wait_for_edge(27, GPIO.RISING)
+        GPIO.wait_for_edge(27, GPIO.FALLING)
         time.sleep(3)
-        if GPIO.input(27) == 1:
-            #GPIO.output(22, GPIO.LOW)
+        if GPIO.input(27) == 0:
+            GPIO.output(22, GPIO.LOW)
+            time.sleep(1)
+            GPIO.output(22, GPIO.HIGH)
             commands.getoutput("shutdown -h now")
 except KeyboardInterrupt:
     GPIO.cleanup()
