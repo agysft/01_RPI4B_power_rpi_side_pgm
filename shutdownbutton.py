@@ -11,9 +11,9 @@ GPIO.setup(22, GPIO.OUT, initial=GPIO.HIGH)
 
 try:
     while True:
-        GPIO.wait_for_edge(27, GPIO.FALLING)
+        GPIO.wait_for_edge(27, GPIO.RISING)
         time.sleep(3)
-        if GPIO.input(27) == 0:
+        if GPIO.input(27) == 1:
             GPIO.output(22, GPIO.LOW)
             time.sleep(1)
             GPIO.output(22, GPIO.HIGH)
