@@ -17,7 +17,7 @@ try:
             GPIO.output(22, GPIO.LOW)
             time.sleep(1)
             GPIO.output(22, GPIO.HIGH)
-            time.sleep(5)
+            time.sleep(2)
             commands.getoutput("shutdown -h now")
 except KeyboardInterrupt:
     GPIO.cleanup()
